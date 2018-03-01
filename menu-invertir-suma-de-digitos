@@ -1,0 +1,74 @@
+// menu.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+int leern();
+int suma(int n);
+int invertir(int n);
+
+
+void main()
+{	int n,r,s,o,in;
+	do{
+		o=0;
+		in=0;
+		cout<< "Menu"<<endl;
+		cout<< "1. suma de digitos"<<endl;
+		cout<< "2. invertir numero"<<endl;
+		cout<< "0. salir"<<endl;
+		cin>>o;
+	
+		switch (o)
+		{
+			case 1: n= leern();
+				s=suma(n);
+				cout<<"la suma de digitos es: "<<s<<endl;
+			break;
+			case 2: n= leern();
+				in=invertir(n);
+	   			cout<< "el numero invertido es "<<in<<endl;
+			break;
+			case 3: cout<< "salir";
+			break;
+			default: cout<<"error";
+		}
+	}while (o!=0);
+getch();
+}
+
+
+
+int leern()
+{	int n;
+	cout<< "ingrese el numero"<<endl;
+	cin>> n;
+return(n);
+}
+int suma(int n)
+{	int r,s;
+	s=0;
+	while(n>0)
+	{	r=n%10;
+		n=n/10;
+		s=s+r;
+	}
+return(s);
+}
+
+int invertir(int n)
+{
+	int r,x;
+	x=0;
+	while(n>0)
+	{	r=n%10;
+		n=n/10;
+		x=x*10+r;
+	}
+
+	return(x);
+	}
+
+	
