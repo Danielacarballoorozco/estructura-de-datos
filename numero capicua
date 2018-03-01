@@ -1,0 +1,22 @@
+// estructuras1.cpp: define el punto de entrada de la aplicación de consola.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+void main()
+{int n,r,in,x,i;
+in=0;
+cout<< "ingrese el numero"<<endl;
+cin>>n;
+x=n;
+while(n>0)
+{  r=n%10;
+   n=n/10;
+   in=in*10+r;
+}
+if(in==x)
+{
+cout<<"el numero "<<x<<" es capicua"<<endl;
+}
