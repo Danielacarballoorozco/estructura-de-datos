@@ -6,15 +6,15 @@
 #include <iostream>
 using namespace std;
 void main()
-{int n,r,in;
-in=0;
-cout<< "ingrese el numero"<<endl;
-cin>>n;
-while(n>0)
-{  r=n%10;
-   n=n/10;
-   in=in*10+r;
-}
-cout<<"el numero invertido es :"<<in<<endl;
-getch();
+{  int n,r,in;
+   in=0;
+   cout<< "ingrese el numero"<<endl;
+   cin>>n;
+   while(n>0)
+   {  r=n%10;
+      n=n/10;
+      in=in*10+r;
+   }
+   cout<<"el numero invertido es :"<<in<<endl;
+   getch();
 }
