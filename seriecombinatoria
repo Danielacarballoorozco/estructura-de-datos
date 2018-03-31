@@ -1,0 +1,77 @@
+#pragma once
+class combinatoria
+{private:
+ int c;
+ int n;
+ int p;
+public:
+	combinatoria(void);
+	~combinatoria(void);
+void comb(int p, int n);
+};
+
+#include "StdAfx.h"
+#include "combinatoria.h"
+#include "iostream"
+using namespace std;
+
+combinatoria::combinatoria(void)
+{	n=10;
+	p=10;
+}
+
+
+combinatoria::~combinatoria(void)
+{
+}
+void combinatoria::comb(int p, int n)
+{	int i,c,fn,fp,x,fx;
+	i=0;
+	fn=1;
+	do{	i++;
+		fn=fn*i;
+
+		}while(i<n);
+	i=0;
+	fp=1;
+	do{	i++;
+		fp=fp*i;
+
+		}while(i<p);
+	i=0;
+	x=n-p;
+	fx=1;
+	do{	i++;
+		fx=fx*i;
+
+		}while(i<x);
+	cout <<fn<<endl;
+	cout << fp<<endl;
+	cout<< fx<<endl;
+	c=fn/(fx*fp);
+	cout << " C!=(n p)= "<<c;
+}
+// examen practico.cpp: define el punto de entrada de la aplicación de consola.
+//
+
+#include "stdafx.h"
+#include "iostream"
+#include "conio.h"
+#include "combinatoria.h"
+
+using namespace std;
+void main ()
+{	combinatoria combinatoria1;
+	int p,n;
+	do{
+		cout <<" Ingrese el valor de n "<<endl;
+		cin>> n;
+		} while(n<=0);
+	do{
+		cout <<" Ingrese el valor de p "<<endl;
+		cin>> p;
+		}while (p<=0);
+combinatoria1.comb(p,n);
+getch();
+
+}
