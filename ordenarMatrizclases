@@ -1,0 +1,161 @@
+#pragma once
+#define MAX 10
+class matriz
+{
+private:
+	int M[MAX][MAX];
+public:
+	matriz(void); // constructor
+	~matriz(void); //destructor
+
+	void cargarmatriz(int M[MAX][MAX], int x, int y); //metodos
+	void mostrarmatriz(int M[MAX][MAX], int x, int y);
+	void ordenarmatriz(int M[MAX][MAX], int x,int y);
+	void promedio(int M[MAX][MAX],int x,int y);
+};
+////////////////////////////////////////////////////////////
+
+#include "StdAfx.h"
+#include <iostream>
+#include "matriz.h"
+
+using namespace std;
+
+matriz::matriz(void)
+{
+	M[MAX][MAX]=0;
+	
+}
+
+
+matriz::~matriz(void)
+{
+}
+
+void matriz::cargarmatriz(int M[MAX][MAX], int x, int y)
+{
+	for(int i=0;i<x;i++)
+	{	for(int j=0;j<y;j++)
+		{	cout<<"M["<<i<<"]["<<j<<"] =" ;
+			cin>>M[i][j];
+		}
+	}
+}
+
+void matriz::mostrarmatriz(int M[MAX][MAX], int x, int y)
+{
+
+	for(int i=0;i<x;i++)
+	{	for(int j=0;j<y;j++)
+		{	cout<<"M["<<i<<"]["<<j<<"] =" ;
+			cout<<M[i][j];
+		}
+	}
+
+	
+	cout<<endl;
+}
+
+void matriz::ordenarmatriz(int M[MAX][MAX], int x, int y)
+{  int mayor;
+	for (int i=0; i<x; i++)
+	{	for (int j=0; j<y; j++)
+			{	for(int f=0; f<x;f++)
+					{	for(int c=0; c<y; c++)
+							{	if(M[i][j]>M[f][c])
+									{mayor=M[i][j];
+									M[i][j]=M[f][c];
+									M[f][c]=mayor;
+						            }
+					        }
+				    }
+			}
+	
+	}
+	
+mostrarmatriz(M,x, y);
+}
+void matriz::promedio(int M[MAX][MAX],int x,int y)
+{
+float s,p;
+int a;
+s=0;
+a=0;
+
+	for(int j=0;j<y;j++)
+	{	
+
+			for(int i=0;i<x;i++)
+		{	s=s+M[i][j];
+			
+		}
+			a=a+1;
+			p=s/y;
+			cout<<" el promedio de la fila "<<a<<"es "<<p<<endl;
+			s=0;
+	}
+	
+}
+///////////////////////////////////////////////////////////////////////////////
+// menuMatriz.cpp: define el punto de entrada de la aplicación de consola.
+//
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "matriz.h"  //Declarar el header de la clase
+
+
+
+using namespace std;
+
+void main(){
+	
+	int M[MAX][MAX],x,y, op;
+	matriz matriz1;  // Declarando el objeto matriz1 de la clase matriz
+	do {
+		cout<<"Ingrese las filas de la matriz : ";
+		cin>>x;
+	
+	} while ((x>MAX ) || (x<=0));
+		
+	do {
+		cout<<"Ingrese las columnas de la matriz : ";
+		cin>>y;
+	}	while ((y>MAX ) || (y<=0));
+	do{
+		cout<<"-----       M E N U        -----"<<endl;
+		cout<<"|1.- Cargar matriz.            |"<<endl;
+		cout<<"|2.- Mostrar matriz.           |"<<endl;
+		cout<<"|3.- Ordenar matriz.           |"<<endl;
+		cout<<"|4.- promedio de las filas.           |"<<endl;
+		cout<<"|0.- Salir                     |"<<endl;
+		cout<<"--------------------------------"<<endl;
+		cout<<" Elija una opcion"<<endl;
+		cin>>op;
+		switch(op){
+		case 1:
+			matriz1.cargarmatriz(M,x,y);  //Llamar al metodo
+			break;
+		case 2:
+			matriz1.mostrarmatriz(	M,x,y);
+			break;
+		case 3:
+			matriz1.ordenarmatriz(M,x,y);
+		
+			break;
+		case 4:
+			matriz1.promedio(M,x,y);
+			break;
+		case 0: 
+			cout<<"Salir"<<endl;
+			break;
+		default:
+			cout<<"Error: Opcion no valida..."<<endl;
+			break;
+		}
+	}while(op!=0);
+	getch();
+}
+
+
+
