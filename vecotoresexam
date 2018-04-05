@@ -1,0 +1,86 @@
+#pragma once
+class vector
+{	private:
+	int V[10];
+	int n;
+public:
+	vector(void);
+	~vector(void);
+	void cargar(int V[10],int n);
+	void menor(int V[10], int n);
+	void ordenar(int V[10],int n);
+};
+////////////////////////////////
+#include "StdAfx.h"
+#include "vector.h"
+#include "iostream"
+using namespace std;
+
+
+vector::vector(void)
+{
+}
+
+
+vector::~vector(void)
+{
+}
+void vector::cargar(int V[10],int n)
+{int i;
+	for(i=0;i<n;i++)
+	{cout<<"V["<<i<<"] = ";
+	 cin>>V[i];
+
+	}
+}
+void vector::menor(int V[10], int n)
+{int i,menor;
+	menor=V[0];
+  for(i=0;i<n;i++)
+  {	cout<<V[i]<<" ";
+  }
+  cout<<endl;
+  for(i=0;i<n;i++)
+  {	if(V[i]<menor)
+		{	menor=V[i];
+		}
+  }
+  cout<<"El menor elemento es: "<<menor;
+  cout<<endl;
+
+}
+void vector::ordenar(int V[10],int n)
+{int aux;
+aux=0;
+	for(int i=0;i<n-1;i++)
+	{for(int j=i+1;j<n;j++)
+		{if(V[i]>V[j])
+			{aux=V[i];
+			V[i]=V[j];
+			V[j]=aux;
+			}
+		}
+	}
+	for(int i=0;i<n;i++)
+	{cout<<"V["<<i<<"]="<<V[i];
+	}
+}
+/////////////////////////////////
+// clase-vector.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "vector.h"
+using namespace std;
+void main()
+{ vector vector1;
+	int V[10],n;
+	cout <<"ingrese el limite"<<endl;
+	cin>>n;
+	vector1.cargar(V,n);
+	vector1.menor(V,n);
+	vector1.ordenar(V,n);
+	getch();
+}
